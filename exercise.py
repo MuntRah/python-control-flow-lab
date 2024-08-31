@@ -99,15 +99,16 @@ def check_voting_eligibility():
 # - Apply conditional logic to perform the correct age calculation based on the dog's age.
 
 def calculate_dog_years():
-    dogAge = input('enter the dog age')
+    dogAge = input( 'enter the dog age: ')
     dogAge = int(dogAge)
-    if(dogAge == 1 or dogAge == 2):
+    
+    if dogAge <= 2:
         dogAge = dogAge * 10
-        print(f'The dogs age in dog years is {dogAge}')
     else:
-        dogAge = 20 + (dogAge * 7 )
-        print(f'The dogs age in dog years is {dogAge}')
-        
+        dogAge = 20 + (dogAge - 2) * 7
+    
+    print(f'The dog age in dog years is {dogAge}')
+
 
 
 # Call the function
@@ -171,49 +172,40 @@ def weather_advice():
 # - Ensure to validate input formats and handle unexpected inputs gracefully.
 
 def determine_season():
-    month = input('"Enter the month of the year (Jan - Dec):')
-    day = input('Enter the day of the month:')
-    if month in ('Jan', 'Feb' ):
+    month = input("Enter the month of the year (Jan - Dec): ")
+    day = int(input("Enter the day of the month: "))
+
+    if month in ('Jan', 'Feb'):
         season = 'Winter'
-        print(season)
-    elif month in ('Dec') and day >= 21 :
+    elif month == 'Dec' and day >= 21:
         season = 'Winter'
-        print(season)   
-    elif month in ('Mar') and day <= 19 :
+    elif month == 'Mar' and day <= 19:
         season = 'Winter'
-        print(season)   
-    elif month in ( 'Apr', 'May')  :
+    elif month in ('Apr', 'May'):
         season = 'Spring'
-        print(season)
-        
-    elif month in ('Mar') and day >= 20 :
+    elif month == 'Mar' and day >= 20:
         season = 'Spring'
-        print(season)
-    elif month in ('Jun') and day <= 20 :
+    elif month == 'Jun' and day <= 20:
         season = 'Spring'
-        print(season)
-        
     elif month in ('Jul', 'Aug'):
-        season = 'Summer' 
-        print(season)
-    elif month in ('Jun') and day >= 21:
         season = 'Summer'
-        print(season)
-    elif month in ('Sep') and day <= 21:
+    elif month == 'Jun' and day >= 21:
         season = 'Summer'
-        print(season)
-    elif month in ('Sep') and day >= 22:
+    elif month == 'Sep' and day <= 21:
+        season = 'Summer'
+    elif month == 'Sep' and day >= 22:
         season = 'Fall'
-        print(season)
-    elif month in ('Dec') and day <=20:
+    elif month == 'Dec' and day <= 20:
         season = 'Fall'
-        print
     else:
         season = 'Fall'
-        print(season)
+
+    print(f"{month} {day} is in {season}.")
+
+
     
    
 # Call the function
-determine_season()
+# determine_season()
 
 
